@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import proyectoEjemplo.entidades.Direccion;
 import proyectoEjemplo.entidades.Empleado;
 
 /**
@@ -25,7 +26,8 @@ public class TestMergePersist {
 	public static void main (String [] args) {
 		
 		em = emf.createEntityManager();
-		Empleado e = new Empleado(10L, "Perez", "Pepito",LocalDate.of(1996, Month.FEBRUARY, 16));
+		Empleado e = new Empleado(10L, "Perez", "Pepito",LocalDate.of(1996, Month.FEBRUARY, 16),
+				new Direccion(1L,"Calle falsa","localidad","provincia","Colombia"));
 		// scenario 1
 		
 		// em.getTransaction().begin();

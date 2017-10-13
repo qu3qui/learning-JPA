@@ -3,10 +3,12 @@ package proyectoEjemplo.entidades;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name = "empleado")
@@ -33,14 +35,24 @@ public class Empleado implements Serializable {
 	@Column(name = "FECHA_NACIMIENTO")
 	private LocalDate fechaNacimiento;
 	
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name="ID_DIRECCION")
+	private Direccion direccion;
+	
 	public Empleado() {}
 	
-	public Empleado(long codigo, String apellidos, String nombre, LocalDate fechaNacimiento) {
+	
+
+	public Empleado(long codigo, String apellidos, String nombre, LocalDate fechaNacimiento, Direccion direccion) {
+		super();
 		this.codigo = codigo;
 		this.apellidos = apellidos;
 		this.nombre = nombre;
 		this.fechaNacimiento = fechaNacimiento;
+		this.direccion = direccion;
 	}
+
+
 
 	public long getCodigo() {
 		return codigo;
@@ -73,10 +85,21 @@ public class Empleado implements Serializable {
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	
+
+	public Direccion getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
 
 	@Override
 	public String toString() {
 		return "Empleado [codigo=" + codigo + ", apellidos=" + apellidos + ", nombre=" + nombre + ", fechaNacimiento="
-				+ fechaNacimiento + "]";
+				+ fechaNacimiento + ", direccion=" + direccion + "]";
 	}
+
+	
 }
