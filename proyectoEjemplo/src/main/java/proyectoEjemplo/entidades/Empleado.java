@@ -1,7 +1,8 @@
 package proyectoEjemplo.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,11 +31,11 @@ public class Empleado implements Serializable {
 	private String nombre;
 	
 	@Column(name = "FECHA_NACIMIENTO")
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	
 	public Empleado() {}
 	
-	public Empleado(long codigo, String apellidos, String nombre, Date fechaNacimiento) {
+	public Empleado(long codigo, String apellidos, String nombre, LocalDate fechaNacimiento) {
 		this.codigo = codigo;
 		this.apellidos = apellidos;
 		this.nombre = nombre;
@@ -65,11 +66,11 @@ public class Empleado implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

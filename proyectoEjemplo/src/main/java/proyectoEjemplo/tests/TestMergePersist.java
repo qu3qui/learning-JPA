@@ -1,5 +1,7 @@
 package proyectoEjemplo.tests;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class TestMergePersist {
 	public static void main (String [] args) {
 		
 		em = emf.createEntityManager();
-		Empleado e = new Empleado(10L, "Perez", "Pepito", new GregorianCalendar(1979,6,6).getTime());
+		Empleado e = new Empleado(10L, "Perez", "Pepito",LocalDate.of(1996, Month.FEBRUARY, 16));
 		// scenario 1
 		
 		// em.getTransaction().begin();

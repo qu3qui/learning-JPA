@@ -5,6 +5,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.GregorianCalendar;
 import java.util.List;
 import proyectoEjemplo.entidades.Empleado;
@@ -61,7 +63,7 @@ public class EmpleadoTest {
 
 	private static void crearRegistro() {
 		EntityManager manager = emf.createEntityManager();
-		Empleado e = new Empleado(10L, "Perez", "Pepito", new GregorianCalendar(1979,6,6).getTime());
+		Empleado e = new Empleado(10L, "Sebastian", "Buitrago", LocalDate.of(1996, Month.FEBRUARY, 16));
 		manager.getTransaction().begin();
 		manager.persist(e);
 		manager.getTransaction().commit();
